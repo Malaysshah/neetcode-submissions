@@ -1,0 +1,17 @@
+class Solution {
+    public int[] productExceptSelf(int[] a) {
+        int ans[]=new int[a.length];
+        ans[0]=1;
+        for(int i=1;i<a.length;i++)
+        {
+            ans[i]=ans[i-1]*a[i-1];
+        }
+        int r=1;
+        for(int i=a.length-2;i>=0;i--)
+        {
+            r=r*a[i+1];
+            ans[i]*=r;
+        }
+        return ans;
+    }
+}  
